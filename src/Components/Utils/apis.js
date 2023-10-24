@@ -12,9 +12,19 @@ import axios from "axios";
      return response.data.articles
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
+    })
+  }
+
+  export const getArticleById = (article_id) => {
+
+    return newsApi.get(`/articles/${article_id}`)
+    .then((response) => {
+     return response.data.article
+   
+    })
+    .catch((error) => {
+      console.error(error);
     })
   
   }
-
-

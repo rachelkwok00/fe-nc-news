@@ -4,6 +4,7 @@ import Header from './Components/Header'
 import Home from './Components/Home'
 import Navbar from './Components/NavBar'
 import AllArticles from './Components/AllArticles'
+import SingleArticle from './Components/SingleArticle'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
    <Routes>
     <Route path="/" element={<Home  />} />
     <Route path="/articles" element={<AllArticles />} />
+    <Route path="/articles/:article_id" element={<SingleArticle />} />
     </Routes>
     </>
   )

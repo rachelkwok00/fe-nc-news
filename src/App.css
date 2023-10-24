@@ -40,3 +40,9 @@ h1{
   
   }
 }
+
+#single-article-container{
+  border-color: azure ;
+  border-style: solid;
+  text-align: center;
+}
