@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getArticleById } from "./Utils/apis";
 import { useParams } from "react-router-dom";
-
+import Timestamp from 'react-timestamp';
 
 export default function SingleArticle(){
 
@@ -29,8 +29,8 @@ export default function SingleArticle(){
   <h2>{article.title}</h2>
   <p>{article.topic}</p>
   <img src={article.article_img_url}></img>
-  <p>written by: {article.author} on {article.created_at}</p>
-  <p>{article.body}</p>
+  <p>{article.body}</p> 
+   <p>written by: {article.author} on <Timestamp date={article.created_at} /></p>
 
     
         </div>
