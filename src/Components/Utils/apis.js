@@ -1,7 +1,21 @@
-export const fetchAllArticles  = () => {
+import axios from "axios";
 
-    return fetch('https://nc-news-13ym.onrender.com/api/articles').then((response) =>
-      response.json()
-    );
+  const newsApi = axios.create({
+    baseURL: 'https://nc-news-13ym.onrender.com/api'
+  });
+ 
+
+  export const getAllArticles = () => {
+
+    return newsApi.get('/articles')
+    .then((response) => {
+     return response.data.articles
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+
+  
   }
+
 

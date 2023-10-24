@@ -1,5 +1,42 @@
+h1{
+  text-align: center;
+}
+
+#article-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 1rem;
+ 
+}
+
 #article-card-container{
   border-color: azure ;
   border-style: solid;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; 
+  margin-right: 2rem;
+  margin-left: 2rem;
+  text-align: center;
+}
+
+#article-card-container img{
+  height: 10rem;
+}
+/* 2200 */
+@media screen and (max-width: 1200px) {
+  #article-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 1rem;
+   
+  
+  }
+}
+@media screen and (max-width: 786px) {
+  #article-container{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 1rem;
+   
+  
+  }
 }
