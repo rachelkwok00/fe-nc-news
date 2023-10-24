@@ -28,3 +28,16 @@ import axios from "axios";
     })
   
   }
+
+  export const getCommentsById = (article_id) => {
+
+    return newsApi.get(`/articles/${article_id}/comments`)
+    .then((response) => {
+     return response.data.comment
+   
+    })
+    .catch((error) => {
+      console.error(error);
+    })
+  
+  }

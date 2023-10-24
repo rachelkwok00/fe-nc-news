@@ -1,21 +1,22 @@
 import { useEffect, useState } from "react";
-import { getArticleById } from "./Utils/apis";
+import { getCommentsById } from "./Utils/apis";
 import { useParams } from "react-router-dom";
 import Timestamp from 'react-timestamp';
-import Comments from "./Comments";
+import CommentCard from "./CommentCard";
+
 
 export default function SingleArticle(){
 
-  const [article, setArticle] = useState([]);
     const [loading, setIsLoading] = useState(true);
     const [err, setErr] = useState(null);
+    const [comments, setComment] = useState([]);
 
     const {article_id} = useParams()
 
     useEffect(() => {
-      getArticleById(article_id)
+      getCommentsById(article_id)
       .then((response) => {
-        setArticle(response);
+        setComment(response);
         setIsLoading(false);
       }).catch((err) =>{
         setErr({err})
@@ -26,15 +27,19 @@ export default function SingleArticle(){
     if(err) return <p>{err}</p>
 
     return(
-        <div> <div id="single-article-container">
-  <h2>{article.title}</h2>
-  <p>{article.topic}</p>
-  <img src={article.article_img_url}></img>
-  <p>{article.body}</p> 
-   <p>written by: {article.author} on <Timestamp date={article.created_at} /></p>
-</div><div id="comments-container">
-    <Comments />
-    </div>
+        <div id="comments-container">
+  <h2>Comments</h2>
+  {
+ comments.map((comment, index)=>{
+    return (
+        <div id="comment-card-container" key={index}>
+            <CommentCard comment={comment}/>
+        </div>
+    )
+})}
+  
+
+    
         </div>
     )
 }
