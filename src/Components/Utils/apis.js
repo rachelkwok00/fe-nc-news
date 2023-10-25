@@ -39,3 +39,11 @@ import axios from "axios";
     })
   
   }
+
+
+  export const updateVote = (article_id , value ) => {
+
+    return newsApi.patch(`/articles/${article_id}`, { vote_increment : value }).then((response)=>{
+      return response.data.article
+    })
+  }
