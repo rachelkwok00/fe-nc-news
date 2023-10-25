@@ -20,11 +20,9 @@ import axios from "axios";
 
     return newsApi.get(`/articles/${article_id}`)
     .then((response) => {
+   
      return response.data.article
    
-    })
-    .catch((error) => {
-      console.error(error);
     })
   
   }
@@ -37,7 +35,7 @@ import axios from "axios";
    
     })
     .catch((error) => {
-      console.error(error);
+      console.log(error);
     })
   
   }

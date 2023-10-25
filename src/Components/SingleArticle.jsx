@@ -3,10 +3,12 @@ import { getArticleById } from "./Utils/apis";
 import { useParams } from "react-router-dom";
 import Timestamp from 'react-timestamp';
 import Comments from "./Comments";
+import ErrorMessage from "./ErrorMessage";
+
 
 export default function SingleArticle(){
 
-  const [article, setArticle] = useState([]);
+  const [article, setArticle] = useState({});
     const [loading, setIsLoading] = useState(true);
     const [err, setErr] = useState(null);
 
@@ -15,15 +17,18 @@ export default function SingleArticle(){
     useEffect(() => {
       getArticleById(article_id)
       .then((response) => {
+  
         setArticle(response);
         setIsLoading(false);
-      }).catch((err) =>{
-        setErr({err})
+      }).catch(() =>{
+        setErr(true)
+        setIsLoading(false);
       });
     }, []); 
 
     if (loading) return <p>Loading...</p>
-    if(err) return <p>{err}</p>
+ 
+    if (err) return <ErrorMessage message={"Article not found"} />
 
     return(
         <div> <div id="single-article-container">

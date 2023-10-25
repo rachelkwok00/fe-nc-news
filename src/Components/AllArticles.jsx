@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import ArticleCard from "./ArticleCard";
 import { getAllArticles,} from "./Utils/apis.js";
 import { useEffect, useState } from "react";
@@ -8,6 +9,7 @@ export default function AllArticles() {
     const [articles, setArticles] = useState([]);
     const [loading, setIsLoading] = useState(true);
    
+
     useEffect(() => {
       getAllArticles()
       .then((response) => {
