@@ -8,6 +8,7 @@ export default function AllArticles() {
 
     const [articles, setArticles] = useState([]);
     const [loading, setIsLoading] = useState(true);
+   
 
     useEffect(() => {
       getAllArticles()

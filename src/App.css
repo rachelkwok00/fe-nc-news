@@ -45,4 +45,11 @@ h1{
   border-color: azure ;
   border-style: solid;
   text-align: center;
+  margin-bottom: 1rem;
+}
+
+#comments-container{
+  border-color: azure ;
+  border-style: solid;
+  text-align: center;
 }
