@@ -27,12 +27,12 @@ export default function SingleArticle(){
     if(err) return <p>{err}</p>
 
     return(
-        <section id="comments-container">
+        <section >
   <h2>Comments</h2> {comments.length === 0 ?(<p>No Comments</p>) :(
     
  comments.map((comment, index)=>{
     return (
-        <div id="comment-card-container" key={index}>
+        <div id="comments-container" key={index}>
             <CommentCard comment={comment}/>
         </div >
     )

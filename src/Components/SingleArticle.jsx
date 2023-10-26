@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Timestamp from 'react-timestamp';
 import Comments from "./Comments";
 import ErrorMessage from "./ErrorMessage";
+import Vote from "./Vote";
 
 
 export default function SingleArticle(){
@@ -11,6 +12,7 @@ export default function SingleArticle(){
   const [article, setArticle] = useState({});
     const [loading, setIsLoading] = useState(true);
     const [err, setErr] = useState(null);
+
 
     const {article_id} = useParams()
 
@@ -35,10 +37,13 @@ export default function SingleArticle(){
   <h2>{article.title}</h2>
   <p>{article.topic}</p>
   <img src={article.article_img_url}></img>
+
+  <Vote votes={article.votes} article_id={article.article_id}/>
   <p>{article.body}</p> 
    <p>written by: {article.author} on <Timestamp date={article.created_at} /></p>
 </div><div id="comments-container">
-    <Comments />
+  
+    <Comments votes={article.votes}/>
     </div>
         </div>
     )
