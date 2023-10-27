@@ -22,8 +22,6 @@ export default function SignIn() {
            })}
 
 useEffect(()=>{
-
-console.log(signIn)
  if(username.length > 0){
    attemptSignIn ? null : setErr("Username is incorrect")
  }

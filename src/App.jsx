@@ -6,13 +6,11 @@ import Navbar from './Components/NavBar'
 import AllArticles from './Components/AllArticles'
 import SingleArticle from './Components/SingleArticle'
 import SignIn from './Components/SignIn'
-import react, { createContext } from 'react'
-
+import react from 'react'
 
 export const Context = react.createContext()
 
 function App() {
-
 
   return (
     <>

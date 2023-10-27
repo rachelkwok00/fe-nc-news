@@ -20,7 +20,7 @@ export default function AddComment({article_id}) {
           username : username,
           }
  signIn ?  postComment(article_id , commentObj).then((response)=>{
-            console.log(response.comment,"response AFTER POST")
+            
           setNewFullComment(response.comment)
           setErr('Comment Posted') 
        
@@ -29,7 +29,8 @@ export default function AddComment({article_id}) {
 
   return (
     <>{newFullComment ? (<NewComment newFullComment={newFullComment}/> ):
-       ( <><p>AddComment</p>
+       ( <>
+       <p>AddComment</p>
         <div>{newFullComment}</div>
         <form onSubmit={postingComment}>
         <label htmlFor='input-comment'>Add comment:</label>
