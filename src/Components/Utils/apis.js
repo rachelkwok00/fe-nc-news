@@ -47,3 +47,28 @@ import axios from "axios";
       return response.data.article
     })
   }
+
+  export const getUsername = () => {
+
+    return newsApi.get(`/users`)
+    .then((response) => {
+     return response.data.users
+   
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  
+  }
+
+  export const postComment = (article_id , commentObj) => {
+
+    return newsApi.post(`/articles/${article_id}/comments`, commentObj).then((response) => {
+    
+   return response.data
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  
+  }

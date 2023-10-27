@@ -49,6 +49,14 @@ justify-content: center;
 flex-direction: row;
 }
 
+#new-comment-container{
+  margin: 2rem;
+  border-radius: 2.5rem;
+  border-color: azure ;
+  border-style: solid;
+
+}
+
 #button-voting-container p{
 padding: 1rem;
 }
@@ -93,4 +101,12 @@ padding: 1rem;
   border-color: azure ;
   border-style: solid;
   text-align: center;
+}
+
+form{
+  color: black;
+}
+
+#username-container{
+  color: black;
 }
