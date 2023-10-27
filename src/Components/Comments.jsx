@@ -3,6 +3,7 @@ import { getCommentsById } from "./Utils/apis";
 import { useParams } from "react-router-dom";
 import Timestamp from 'react-timestamp';
 import CommentCard from "./CommentCard";
+import AddComment from "./AddComment";
 
 
 export default function SingleArticle(){
@@ -28,7 +29,11 @@ export default function SingleArticle(){
 
     return(
         <section >
-  <h2>Comments</h2> {comments.length === 0 ?(<p>No Comments</p>) :(
+  <h2>Comments</h2> 
+
+  <AddComment article_id={article_id}/>
+  
+  {comments.length === 0 ?(<p>No Comments</p>) :(
     
  comments.map((comment, index)=>{
     return (
