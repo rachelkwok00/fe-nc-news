@@ -35,12 +35,13 @@ export default function SingleArticle(){
     return(
         <div> <div id="single-article-container">
   <h2>{article.title}</h2>
-  <p>{article.topic}</p>
+  <p className="topic">{article.topic}</p>
   <img src={article.article_img_url}></img>
 
   <Vote votes={article.votes} article_id={article.article_id}/>
-  <p>{article.body}</p> 
-   <p>written by: {article.author} on <Timestamp date={article.created_at} /></p>
+  <p className="article-body">{article.body}</p> 
+
+   <p className="article-info">written by: {article.author} on <Timestamp date={article.created_at} /></p>
 </div><div id="comments-container">
   
     <Comments votes={article.votes}/>
