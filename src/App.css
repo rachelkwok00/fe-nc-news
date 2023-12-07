@@ -1,10 +1,37 @@
-body{
-  background-color: #fff;
+.header{
+  text-align: center;
+  color: rgb(174, 174, 240);
+  font-size: 4rem;
+  margin-top: 0.5rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-h1{
-  text-align: center;
-  color: rgb(116, 116, 229);
+ /* nav-bar */
+
+.nav-container {
+  width: 100%;
+display: flex;
+  text-decoration: none;
+  justify-content: space-between;
+}
+
+.nav-container .nav-route-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-nav .nav-link {
+  margin-right: auto; 
+  text-decoration: none;
+}
+
+
+ul {
+  list-style: none;
+}
+
+#username-container {
+  margin-left: auto; 
 }
 
 #article-container{
@@ -40,43 +67,14 @@ h1{
   height: 10rem;
 }
 
-#single-article-container{
-background-color: rgb(116, 116, 229);
-margin: 2rem;
-border-radius: 2.5rem;
-align-items: center;
-justify-content: center;
-flex-direction: row;
-}
 
-#new-comment-container{
-  margin: 2rem;
-  border-radius: 2.5rem;
-  border-color: azure ;
-  border-style: solid;
 
-}
-
-#button-voting-container p{
-padding: 1rem;
-}
-
-#comments-container{
-  background-color: rgb(116, 116, 229);
-  margin: 2rem;
-  border-radius: 2.5rem;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  }
 
 @media screen and (max-width: 1200px) {
   #article-container{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: 1rem;
-   
-
   }
 }
 
@@ -90,18 +88,7 @@ padding: 1rem;
   }
 }
 
-#single-article-container{
-  border-color: azure ;
-  border-style: solid;
-  text-align: center;
-  margin-bottom: 1rem;
-}
 
-#comments-container{
-  border-color: azure ;
-  border-style: solid;
-  text-align: center;
-}
 
 form{
   color: black;
@@ -110,3 +97,235 @@ form{
 #username-container{
   color: black;
 }
+
+p{
+  color: black;
+}
+
+/* sort-by */
+
+.sort-by-container {
+  display: flex;
+ margin-bottom: 1.5rem;
+ justify-content: center;
+ align-items: center;
+ padding: 3rem;
+background-color: #ebe7ff;
+
+}
+
+.sort-by-container label{
+  margin-right: 1rem;
+}
+
+.sort-by-container .sort-options{
+  margin-right: 1rem;
+  height: 2.8rem;
+  padding: 0.5rem;
+}
+
+.sort-by-container .order-options{
+  margin-right: 1rem;
+  padding: 0.5rem;
+  height: 2.8rem;
+}
+
+/* article */
+
+#single-article-container .topic{
+  color: rgb(116, 116, 229);
+  font-weight: bold;
+  background-color: rgb(255, 255, 255, 0.5);
+  width: 50%;
+  justify-content: flex-end;
+  margin: 0 auto;
+  text-align: right;
+  padding-right: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+} 
+
+#single-article-container img{
+  margin-bottom: 1rem;
+}
+
+#button-voting-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+
+  #button-voting-container button{
+   background-color: white;
+   font-size: 1.2rem;
+    }
+
+    #button-voting-container button:hover {
+      background-color: white;
+      font-size: 1.5rem;
+       }
+
+       #button-voting-container button:active {
+        background-color: rgb(206, 206, 206);
+        font-size: 1.5rem;
+        color: white;
+        transform: translateY(4px)
+         }
+   
+   #button-voting-container button a{
+      color:  rgb(116, 116, 229);
+      font-size: 150%
+
+      }
+
+#button-voting-container p{
+  padding: 1rem;
+  color: white;
+  font-weight: bolder;
+  
+  }
+  
+#single-article-container{
+  border-color: azure ;
+  border-style: solid;
+  text-align: center;
+  background-color: rgb(116, 116, 229);
+  margin: 2rem;
+  border-radius: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+#single-article-container .article-body{
+  
+  background-color:rgba(255, 255, 255);
+  margin: 2rem;
+  border-radius: 2rem;
+  padding: 1.5rem;
+  color:rgb(116, 116, 229);
+  font-weight: bold;
+  justify-content: flex-start;
+}
+
+#single-article-container .article-info{
+  
+  background-color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 2rem;
+    height: 2rem;
+    color: white;
+    padding-right: 1.5rem;
+}
+
+  
+  
+/* comments */
+
+h2{
+color: white;
+}
+
+#new-comment-container{
+  border-radius: 2.5rem;
+  border-color: rgb(255, 255, 255) ;
+  border-style: solid;
+}
+#comments-container{
+  border-color: rgb(255, 255, 255) ;
+  border-style: solid;
+  text-align: center;
+  background-color: rgb(116, 116, 229);
+  margin: 2rem;
+  border-radius: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.new-comment-container{
+  background-color: rgb(255, 255, 255, 0.5);
+  padding-top: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  border-radius: 2rem;
+}
+
+.new-comment-container #input-comment{
+  min-height: 5rem;
+  min-width: 30rem;
+  margin-right: 3rem;
+ }
+
+.new-comment-container #input-comment{
+  min-height: 5rem;
+  min-width: 30rem;
+  margin-right: 3rem;
+  background-color: rgb(193, 193, 193);
+  border-radius: 1rem;
+  font-weight: bold;
+ }
+
+.new-comment-container button{
+ background-color: rgb(116, 116, 229);
+ font-weight: bold;
+}
+
+.new-comment-container button:hover {
+ font-size: larger;
+ background-color: rgb(62, 62, 228);
+ }
+
+ .new-comment-container button:active {
+  font-size: larger;
+  background-color: rgb(62, 62, 228);
+  opacity: 0.6;
+  transform: translateY(4px)
+  }
+
+.new-comment-container p{
+  font-weight: bold;
+  color: red;
+  padding-bottom: 2rem;
+ }
+
+ .comment-card p{
+  font-weight: bold;
+  color:  rgb(62, 62, 228);
+  align-items: center;
+  padding: 2rem;
+  
+ }
+ .comment-card .comment-background{
+  background-color: white;
+  margin: 2rem;
+  border-radius: 2rem;
+  min-height: 5rem;
+  align-items: center;
+ }
+
+ .comment-card .comment-info{
+  background-color: rgba(255, 255, 255, 0.4);
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 2rem;
+  height: 2rem;
+ }
+
+ .comment-card .comment-info h4{
+ margin-left: 1.5rem;
+ }
+
+ .comment-card .comment-info p{
+margin-right: 0.1rem;
+color: rgb(79, 79, 79);
+ }

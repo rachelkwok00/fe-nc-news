@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react'
 import { UserContext } from '../Contexts/UserContext';
 import { postComment } from './Utils/apis';
 import NewComment from './NewComment';
+import "../../CSS/Comment.css"
+import Alert from 'react-bootstrap/Alert';
 
 export default function AddComment({article_id}) {
     const [newComment ,setNewComment] =  useState('');
@@ -29,21 +31,25 @@ export default function AddComment({article_id}) {
 
   return (
     <>{newFullComment ? (<NewComment newFullComment={newFullComment}/> ):
-       ( <>
-       <p>AddComment</p>
+       ( <div className="new-comment-container">
         <div>{newFullComment}</div>
         <form onSubmit={postingComment}>
-        <label htmlFor='input-comment'>Add comment:</label>
+    
     <input 
     id="input-comment"
+    type="text"
     onChange={(e) => {
         setNewComment(e.target.value);
         
       }}
       value={newComment}/>
     <button>Post Comment</button>
-    {err}
-        </form> </>)}
+<br></br>
+{err ? <Alert variant="danger">
+      <Alert.Heading>{err}</Alert.Heading>
+    </Alert> : null}
+ 
+        </form> </div>)}
     </>
   )
 }

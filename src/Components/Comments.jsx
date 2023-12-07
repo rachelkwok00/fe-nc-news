@@ -28,7 +28,7 @@ export default function SingleArticle(){
     if(err) return <p>{err}</p>
 
     return(
-        <section >
+        <section>
   <h2>Comments</h2> 
 
   <AddComment article_id={article_id}/>
