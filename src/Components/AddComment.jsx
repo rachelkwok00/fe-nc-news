@@ -5,6 +5,7 @@ import NewComment from './NewComment';
 import "../../CSS/Comment.css"
 import Alert from 'react-bootstrap/Alert';
 import { Button } from 'react-bootstrap';
+import DeleteCommentButton from './DeleteCommentButton';
 
 
 export default function AddComment({article_id}) {
@@ -65,7 +66,11 @@ export default function AddComment({article_id}) {
           setAlertVariant("success")
           setErr('Comment Posted') 
           setShowAlert(true)
-        }): 
+        }).catch(err => {
+        setErr("Error posting comment");
+      }).finally(() => {
+        showAlert(true);
+      }): 
         console.log("I AM HERE INSTEAD")
         setAlertVariant("danger")
         setErr('Sign in to post comment') 
@@ -97,6 +102,7 @@ setErr("Deleting Comment")
     {err && showAlert ? <Alert variant={alertVariant} >
       <Alert.Heading>{err}</Alert.Heading>
     </Alert> : null}
+    <DeleteCommentButton commentID={newFullComment.comment_id}/>
     </>):
        ( <div className="new-comment-container">
         <div>{newFullComment}</div>
