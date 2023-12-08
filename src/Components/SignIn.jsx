@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { getUsername } from './Utils/apis';
 import { UserContext } from '../Contexts/UserContext';
+import Alert from 'react-bootstrap/Alert';
 
 export default function SignIn() {
 
@@ -39,7 +40,15 @@ useEffect(()=>{
       }}
       value={username}/>
     <button id="signin-button">Sign In</button>
-    {signIn ? `Signed in as ${username}` : err}
+    {signIn ?  <Alert variant="success" >
+    <Alert.Heading>{`Signed in as ${username}`}</Alert.Heading>
+  </Alert> :
+    <Alert variant="danger" >
+    <Alert.Heading>{err}</Alert.Heading>
+  </Alert>
+    
+    
+}
 
    </form>
     </>

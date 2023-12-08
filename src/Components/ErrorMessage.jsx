@@ -1,5 +1,5 @@
 export default function ErrorMessage(err){
     return (
-        <p>{err.message}</p>
+       <> <p>{err.message}</p></>
     )
 }
