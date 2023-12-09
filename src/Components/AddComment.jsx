@@ -65,11 +65,12 @@ export default function AddComment({article_id}) {
           setAlertVariant("success")
           setErr('Comment Posted') 
           setShowAlert(true)
-        }): 
+        }): (() => {
         console.log("I AM HERE INSTEAD")
         setAlertVariant("danger")
         setErr('Sign in to post comment') 
-        setShowAlert(true)}
+        setShowAlert(true)
+        })() // IIFE
 
 const handleDeleteComment = (commentID) => {
   setAlertVariant("primary")
