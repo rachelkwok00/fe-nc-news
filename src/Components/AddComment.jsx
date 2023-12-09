@@ -77,67 +77,67 @@ export default function AddComment({ article_id }) {
           setErr("Sign in to post comment");
           setShowAlert(true);
         })(); // IIFE
-      }
+  };
 
-    const handleDeleteComment = (commentID) => {
-      setAlertVariant("primary");
-      setShowAlert(true);
-      setErr("Deleting Comment");
-      return deleteComment(commentID)
-        .then(() => {
-          console.log("handle delete comment done");
-          setAlertVariant("success");
-          setDeletedComment(true);
-          setNewFullComment("");
-          setErr("Message deleted");
-          setShowAlert(true);
-        })
-        .catch((err) => {
-          setAlertVariant("danger");
-          setDeletedComment(false);
-          setErr("Message not deleted");
-        });
-    };
+  const handleDeleteComment = (commentID) => {
+    setAlertVariant("primary");
+    setShowAlert(true);
+    setErr("Deleting Comment");
+    return deleteComment(commentID)
+      .then(() => {
+        console.log("handle delete comment done");
+        setAlertVariant("success");
+        setDeletedComment(true);
+        setNewFullComment("");
+        setErr("Message deleted");
+        setShowAlert(true);
+      })
+      .catch((err) => {
+        setAlertVariant("danger");
+        setDeletedComment(false);
+        setErr("Message not deleted");
+      });
+  };
 
-    return (
-      <>
-        {newFullComment ? (
-          <>
-            <NewComment newFullComment={newFullComment} />
-            <Button
-              onClick={() => handleDeleteComment(newFullComment.comment_id)}
-            >
-              {" "}
-              Delete{" "}
-            </Button>
+  return (
+    <>
+      {newFullComment ? (
+        <>
+          <NewComment newFullComment={newFullComment} />
+          <Button
+            onClick={() => handleDeleteComment(newFullComment.comment_id)}
+          >
+            {" "}
+            Delete{" "}
+          </Button>
+          {err && showAlert ? (
+            <Alert variant={alertVariant}>
+              <Alert.Heading>{err}</Alert.Heading>
+            </Alert>
+          ) : null}
+        </>
+      ) : (
+        <div className="new-comment-container">
+          <div>{newFullComment}</div>
+          <form onSubmit={postingComment}>
+            <input
+              id="input-comment"
+              type="text"
+              onChange={(e) => {
+                setNewComment(e.target.value);
+              }}
+              value={newComment}
+            />
+            <button>Post Comment</button>
+            <br></br>
             {err && showAlert ? (
               <Alert variant={alertVariant}>
                 <Alert.Heading>{err}</Alert.Heading>
               </Alert>
             ) : null}
-          </>
-        ) : (
-          <div className="new-comment-container">
-            <div>{newFullComment}</div>
-            <form onSubmit={postingComment}>
-              <input
-                id="input-comment"
-                type="text"
-                onChange={(e) => {
-                  setNewComment(e.target.value);
-                }}
-                value={newComment}
-              />
-              <button>Post Comment</button>
-              <br></br>
-              {err && showAlert ? (
-                <Alert variant={alertVariant}>
-                  <Alert.Heading>{err}</Alert.Heading>
-                </Alert>
-              ) : null}
-            </form>{" "}
-          </div>
-        )}
-      </>
-    );
-  };
+          </form>{" "}
+        </div>
+      )}
+    </>
+  );
+}
