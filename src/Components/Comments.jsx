@@ -1,48 +1,82 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState , useContext} from "react";
 import { getCommentsById } from "./Utils/apis";
 import { useParams } from "react-router-dom";
 import Timestamp from 'react-timestamp';
-import CommentCard from "./CommentCard";
+// import CommentCard from "./CommentCard";
 import AddComment from "./AddComment";
+import DeleteCommentButton from "./DeleteCommentButton";
 
+import { UserContext } from "../Contexts/UserContext";
 
 export default function SingleArticle(){
 
-    const [loading, setIsLoading] = useState(true);
-    const [err, setErr] = useState(null);
-    const [comments, setComment] = useState([]);
+    const { signInState, usernameState } = useContext(UserContext);
+    const [signIn] = signInState;
+    const [username] = usernameState;
 
-    const {article_id} = useParams()
+  const [loading, setIsLoading] = useState(true);
+  const [err, setErr] = useState(null);
+  const [comments, setComment] = useState([]);
+  const [deletedComment, setDeletedComment] = useState(false);
 
-    useEffect(() => {
-      getCommentsById(article_id)
+  const { article_id } = useParams();
+
+  useEffect(() => {
+    getCommentsById(article_id)
       .then((response) => {
-        setComment(response);
+        console.log((response, "RESPONSE IN COMMENTS"));
+        const sortComments = [...response.sort((a,b)=>{
+          return b.created_at.localeCompare(a.created_at);
+        })]
+        setComment(sortComments);
+
         setIsLoading(false);
-      }).catch((err) =>{
-        setErr({err})
+        console.log((response, "RESPONSE IN COMMENTS2"));
+      })
+      .catch((err) => {
+        setErr({ err });
       });
-    }, []); 
+  }, [deletedComment]);
 
-    if (loading) return <p>Loading...</p>
-    if(err) return <p>{err}</p>
+  if (loading) return <p>Loading...</p>;
+  if (err) return <p>{err}</p>;
 
-    return(
-        <section>
-  <h2>Comments</h2> 
+  return (
+    <section>
+      <h2>Comments</h2>
 
-  <AddComment article_id={article_id}/>
-  
-  {comments.length === 0 ?(<p>No Comments</p>) :(
-    
- comments.map((comment, index)=>{
-    return (
-        <div id="comments-container" key={index}>
-            <CommentCard comment={comment}/>
-        </div >
-    )
-})
-  )}
-        </section>
-    )
+      <AddComment article_id={article_id} />
+
+      {comments.length === 0 ? (
+        <p>No Comments</p>
+      ) : (
+        comments.map((comment, index) => {
+          return (
+            <div id="comments-container" key={index}>
+              {/* <CommentCard comment={comment} setDeletedComment={setDeletedComment} /> */}
+              <div className="comment-card">
+                <div className="comment-background">
+                  {signIn && username === comment.author ? (
+                    <DeleteCommentButton
+                      commentID={comment.comment_id}
+                      setDeletedComment={setDeletedComment}
+                    />
+                  ) : null}
+
+                  <p>{comment.body}</p>
+                </div>
+                <div className="comment-info">
+                  <h4>{comment.author}</h4>
+                  <p>
+                    {" "}
+                    <Timestamp date={comment.created_at} />
+                  </p>
+                </div>
+              </div>
+            </div>
+          );
+        })
+      )}
+    </section>
+  );
 }

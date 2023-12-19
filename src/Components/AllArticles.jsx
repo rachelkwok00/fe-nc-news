@@ -2,6 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import ArticleCard from "./ArticleCard";
 import { getAllArticles } from "./Utils/apis.js";
 import { useEffect, useState } from "react";
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function AllArticles() {
   const [articles, setArticles] = useState([]);
@@ -42,7 +43,7 @@ export default function AllArticles() {
     ));
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return < LoadingSpinner />
 
   return (
     <div >

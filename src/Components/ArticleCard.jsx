@@ -1,18 +1,26 @@
-import { Link } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
 
 export default function ArticleCard(article) {
   return (
-    <>
-      <Link to={`/articles/${article.article.article_id}`}>
-        <h2>{article.article.title}</h2>
-      </Link>
-      <img src={article.article.article_img_url}></img>
-      <div>
-        <p>{article.article.topic}</p>
-        <p>{article.article.author}</p>
-        <p>Votes: {article.article.votes}</p>
-        <p>Comments: {article.article.comment_count}</p>
-      </div>
-    </>
+    <Card style={{ width: "18rem" }}>
+      <Card.Img variant="top" src={article.article.article_img_url} />
+      <Card.Body>
+        <Card.Link href={`/articles/${article.article.article_id}`}><Card.Title>{article.article.title}</Card.Title></Card.Link>
+       
+      </Card.Body>
+      <ListGroup className="list-group-flush">
+        <ListGroup.Item>{article.article.topic}</ListGroup.Item>
+        <ListGroup.Item>{article.article.author}</ListGroup.Item>
+        <ListGroup.Item>Votes: {article.article.votes}</ListGroup.Item>
+        <ListGroup.Item>
+          Comments: {article.article.comment_count}
+        </ListGroup.Item>
+      </ListGroup>
+      <Card.Body>
+        <Card.Link href="#">Card Link</Card.Link>
+        <Card.Link href="#">Another Link</Card.Link>
+      </Card.Body>
+    </Card>
   );
 }
