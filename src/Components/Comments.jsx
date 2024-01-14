@@ -2,7 +2,6 @@ import { useEffect, useState , useContext} from "react";
 import { getCommentsById } from "./Utils/apis";
 import { useParams } from "react-router-dom";
 import Timestamp from 'react-timestamp';
-// import CommentCard from "./CommentCard";
 import AddComment from "./AddComment";
 import DeleteCommentButton from "./DeleteCommentButton";
 
@@ -24,14 +23,11 @@ export default function SingleArticle(){
   useEffect(() => {
     getCommentsById(article_id)
       .then((response) => {
-        console.log((response, "RESPONSE IN COMMENTS"));
         const sortComments = [...response.sort((a,b)=>{
           return b.created_at.localeCompare(a.created_at);
         })]
         setComment(sortComments);
-
         setIsLoading(false);
-        console.log((response, "RESPONSE IN COMMENTS2"));
       })
       .catch((err) => {
         setErr({ err });
@@ -53,7 +49,6 @@ export default function SingleArticle(){
         comments.map((comment, index) => {
           return (
             <div id="comments-container" key={index}>
-              {/* <CommentCard comment={comment} setDeletedComment={setDeletedComment} /> */}
               <div className="comment-card">
                 <div className="comment-background">
                   {signIn && username === comment.author ? (

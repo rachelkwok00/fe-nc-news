@@ -29,23 +29,14 @@ export default function AddComment({ article_id }) {
   const postingComment = (e) => {
     e.preventDefault();
 
-    console.log("signIn:", signIn);
 
     if (!signIn) {
-      console.log("IN HEREERE<<<<<");
       setAlertVariant("danger");
       setErr("Sign in to post comment");
       setShowAlert(true);
       return;
     }
 
-    // if(signIn){
-    //   setErr('Comment Posting')
-    //   setAlertVariant("primary")
-    //     setShowAlert(true)
-    // }
-
-    console.log("Posting a comment...");
 
     setErr("Comment Posting");
     setAlertVariant("primary");
@@ -59,7 +50,6 @@ export default function AddComment({ article_id }) {
     signIn
       ? postComment(article_id, commentObj)
           .then((response) => {
-            console.log(response, "<<<Full comment");
             setNewFullComment(response.comment);
             setAlertVariant("success");
             setErr("Comment Posted");
@@ -72,11 +62,10 @@ export default function AddComment({ article_id }) {
             setShowAlert(true);
           })
       : (() => {
-          console.log("I AM HERE INSTEAD");
           setAlertVariant("danger");
           setErr("Sign in to post comment");
           setShowAlert(true);
-        })(); // IIFE
+        })();
   };
 
   const handleDeleteComment = (commentID) => {
@@ -85,7 +74,6 @@ export default function AddComment({ article_id }) {
     setErr("Deleting Comment");
     return deleteComment(commentID)
       .then(() => {
-        console.log("handle delete comment done");
         setAlertVariant("success");
         setDeletedComment(true);
         setNewFullComment("");

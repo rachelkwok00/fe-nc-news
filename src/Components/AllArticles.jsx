@@ -9,8 +9,7 @@ export default function AllArticles() {
   const [loading, setIsLoading] = useState(true);
   const [params] = useSearchParams();
   const [sortOption, setSortOption] = useState("created_at");
-  const [sortOrder, setSortOrder] = useState("desc"); 
-
+  const [sortOrder, setSortOrder] = useState("desc");
 
   useEffect(() => {
     const topic = params.get("topic");
@@ -28,14 +27,12 @@ export default function AllArticles() {
   const handleSortBy = (newSortOption) => {
     setSortOption(newSortOption);
   };
-  
+
   const handleOrderChange = (newOrder) => {
     setSortOrder(newOrder);
   };
 
-
   const ArticleCards = () => {
-  
     return articles.map((article, index) => (
       <div id="article-card-container" key={index}>
         <ArticleCard article={article} />
@@ -43,26 +40,33 @@ export default function AllArticles() {
     ));
   };
 
-  if (loading) return < LoadingSpinner />
+  if (loading) return <LoadingSpinner />;
 
   return (
-    <div >
+    <div>
       <div className="sort-by-container">
-      <label>Sort by:</label>
-      <select className="sort-options" value={sortOption} onChange={(e) => handleSortBy(e.target.value)}>
-        <option value="date">Date</option>
-        <option value="comment_count">Comments</option>
-        <option value="votes">Votes</option>
-      </select>
+        <label>Sort by:</label>
+        <select
+          className="sort-options"
+          value={sortOption}
+          onChange={(e) => handleSortBy(e.target.value)}
+        >
+          <option value="date">Date</option>
+          <option value="comment_count">Comments</option>
+          <option value="votes">Votes</option>
+        </select>
 
-      <select className="order-options" value={sortOrder} onChange={(e) => handleOrderChange(e.target.value)}>
-        <option value="desc">Descending</option>
-        <option value="asc">Ascending</option>
-      </select>
-
-    </div>
-    <div id="article-container">
-      <ArticleCards />
+        <select
+          className="order-options"
+          value={sortOrder}
+          onChange={(e) => handleOrderChange(e.target.value)}
+        >
+          <option value="desc">Descending</option>
+          <option value="asc">Ascending</option>
+        </select>
+      </div>
+      <div id="article-container">
+        <ArticleCards />
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 import ListGroup from "react-bootstrap/ListGroup";
 import { CommentSvg , HeartSvg} from "../Assets/SvgFile";
 import Badge from "react-bootstrap/Badge";
@@ -8,7 +9,7 @@ export default function ArticleCard(article) {
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Body>
-        <Card.Link href={`/articles/${article.article.article_id}`}>
+        <Card.Link as={Link} to={`/articles/${article.article.article_id}`}>
           <Card.Title>{article.article.title}</Card.Title>
         </Card.Link>
       </Card.Body>
