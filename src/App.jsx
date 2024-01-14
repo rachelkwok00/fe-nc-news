@@ -7,7 +7,7 @@ import AllArticles from "./Components/AllArticles";
 import SingleArticle from "./Components/SingleArticle";
 import SignIn from "./Components/SignIn";
 import react from "react";
-import 'bootstrap/dist/css/bootstrap.min.css'
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Context = react.createContext();
 
@@ -22,6 +22,7 @@ function App() {
         <Route path="/account" element={<SignIn />} />
         <Route path="/articles" element={<AllArticles />} />
         <Route path="/articles/:article_id" element={<SingleArticle />} />
+
       </Routes>
     </>
   );

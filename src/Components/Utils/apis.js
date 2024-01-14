@@ -98,9 +98,9 @@ export const getAllTopics = () => {
 };
 
 export const deleteComment = (commentID) => {
+
 return newsApi
     .delete(`/comments/${commentID}`).then(()=>{
-      console.log("IN API")
     })
     .catch((error) => {
       console.error(error);

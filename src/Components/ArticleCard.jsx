@@ -1,18 +1,32 @@
+import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import ListGroup from "react-bootstrap/ListGroup";
+import { CommentSvg , HeartSvg} from "../Assets/SvgFile";
+import Badge from "react-bootstrap/Badge";
+import Stack from "react-bootstrap/Stack";
 
 export default function ArticleCard(article) {
   return (
-    <>
-      <Link to={`/articles/${article.article.article_id}`}>
-        <h2>{article.article.title}</h2>
-      </Link>
-      <img src={article.article.article_img_url}></img>
-      <div>
-        <p>{article.article.topic}</p>
-        <p>{article.article.author}</p>
-        <p>Votes: {article.article.votes}</p>
-        <p>Comments: {article.article.comment_count}</p>
-      </div>
-    </>
+    <Card style={{ width: "18rem" }}>
+      <Card.Body>
+        <Card.Link as={Link} to={`/articles/${article.article.article_id}`}>
+          <Card.Title>{article.article.title}</Card.Title>
+        </Card.Link>
+      </Card.Body>
+      <Badge pill bg="secondary" style={{ marginBottom: "10px" , width:"100px"}}>
+        {article.article.topic}
+      </Badge>
+      <Card.Img variant="top" src={article.article.article_img_url} />
+
+      <ListGroup className="list-group-flush">
+        <Card.Body>
+          {article.article.author}
+          <ListGroup.Item>
+            <HeartSvg /> {article.article.votes}
+            <CommentSvg /> {article.article.comment_count}
+          </ListGroup.Item>
+        </Card.Body>
+      </ListGroup>
+    </Card>
   );
 }

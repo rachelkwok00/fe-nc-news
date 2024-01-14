@@ -1,51 +1,54 @@
 import { useEffect, useState } from "react";
 import { getArticleById } from "./Utils/apis";
 import { useParams } from "react-router-dom";
-import Timestamp from 'react-timestamp';
+import Timestamp from "react-timestamp";
 import Comments from "./Comments";
 import ErrorMessage from "./ErrorMessage";
 import Vote from "./Vote";
+import LoadingSpinner from "./LoadingSpinner";
 
-
-export default function SingleArticle(){
-
+export default function SingleArticle() {
   const [article, setArticle] = useState({});
-    const [loading, setIsLoading] = useState(true);
-    const [err, setErr] = useState(null);
+  const [loading, setIsLoading] = useState(true);
+  const [err, setErr] = useState(null);
 
+  const { article_id } = useParams();
 
-    const {article_id} = useParams()
-
-    useEffect(() => {
-      getArticleById(article_id)
+  useEffect(() => {
+    getArticleById(article_id)
       .then((response) => {
-  
         setArticle(response);
         setIsLoading(false);
-      }).catch(() =>{
-        setErr(true)
+      })
+      .catch(() => {
+        setErr(true);
         setIsLoading(false);
       });
-    }, []); 
+  }, []);
 
-    if (loading) return <p>Loading...</p>
- 
-    if (err) return <ErrorMessage message={"Article not found"} />
+  if (loading) return <LoadingSpinner />;
 
-    return(
-        <div> <div id="single-article-container">
-  <h2>{article.title}</h2>
-  <p className="topic">{article.topic}</p>
-  <img src={article.article_img_url}></img>
+  if (err) return <ErrorMessage message={"Article not found"} />;
 
-  <Vote votes={article.votes} article_id={article.article_id}/>
-  <p className="article-body">{article.body}</p> 
+  return (
+    <div>
+      {" "}
+      <div id="single-article-container">
+        <h2>{article.title}</h2>
+        <p className="topic">{article.topic}</p>
+        <img src={article.article_img_url}></img>
 
-   <p className="article-info">written by: {article.author} on <Timestamp date={article.created_at} /></p>
-</div><div id="comments-container">
-  
-    <Comments votes={article.votes}/>
+        <Vote votes={article.votes} article_id={article.article_id} />
+        <p className="article-body">{article.body}</p>
+
+        <p className="article-info">
+          written by: {article.author} on{" "}
+          <Timestamp date={article.created_at} />
+        </p>
+      </div>
+      <div id="comments-container">
+        <Comments votes={article.votes} />
+      </div>
     </div>
-        </div>
-    )
+  );
 }
