@@ -7,26 +7,41 @@ import Stack from "react-bootstrap/Stack";
 
 export default function ArticleCard(article) {
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Body>
-        <Card.Link as={Link} to={`/articles/${article.article.article_id}`}>
-          <Card.Title>{article.article.title}</Card.Title>
-        </Card.Link>
-      </Card.Body>
-      <Badge pill bg="secondary" style={{ marginBottom: "10px" , width:"100px"}}>
-        {article.article.topic}
-      </Badge>
-      <Card.Img variant="top" src={article.article.article_img_url} />
-
-      <ListGroup className="list-group-flush">
+    <div className="article-card-container">
+      <Card style={{ width: "18rem" }}>
         <Card.Body>
-          {article.article.author}
-          <ListGroup.Item>
-            <HeartSvg /> {article.article.votes}
-            <CommentSvg /> {article.article.comment_count}
-          </ListGroup.Item>
+          <Card.Link as={Link} to={`/articles/${article.article.article_id}`}>
+            <Card.Title className="card-title">
+              {article.article.title}
+            </Card.Title>
+          </Card.Link>
         </Card.Body>
-      </ListGroup>
-    </Card>
+        <div className="badge-container">
+          <Badge
+            pill
+            bg="secondary"
+            style={{ marginBottom: "10px", width: "100px" }}
+          >
+            {article.article.topic}
+          </Badge>
+        </div>
+        <Card.Img variant="top" src={article.article.article_img_url} />
+
+        <ListGroup className="list-group-flush">
+          <Card.Body>
+            <div className="author-container">{article.article.author}</div>
+
+            <ListGroup.Item>
+              <div>
+              <HeartSvg/> {article.article.votes}
+              </div>
+              <div>
+              <CommentSvg/>{article.article.comment_count}
+              </div>
+            </ListGroup.Item>
+          </Card.Body>
+        </ListGroup>
+      </Card>
+    </div>
   );
 }

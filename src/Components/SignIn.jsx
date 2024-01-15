@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import { getUsername } from './Utils/apis';
 import { UserContext } from '../Contexts/UserContext';
 import Alert from 'react-bootstrap/Alert';
+import Button from 'react-bootstrap/Button';
 
 export default function SignIn() {
 
@@ -33,9 +34,9 @@ useEffect(()=>{
 },[attemptSignIn])
   
   return (
-    <>
+    <div className="sign-in-container">
       <form onSubmit={checkUsername}>
-        <label htmlFor="input-username">Username:</label>
+        <label htmlFor="input-username">Username: </label>
         <input
           id="input-username"
           onChange={(e) => {
@@ -43,13 +44,16 @@ useEffect(()=>{
           }}
           value={username}
         />
-        <button id="signin-button">Sign In</button>
-
+        <div className="button-container">
+          <button id="signin-button">Sign In</button>
+        </div>
 
         {alert && signIn ? (
-          <Alert variant="success">
-            <Alert.Heading>{`Signed in as ${username}`} </Alert.Heading>
-          </Alert>
+          <div className="alert">
+            <Alert variant="success">
+              <Alert.Heading>{`Signed in as ${username}`} </Alert.Heading>
+            </Alert>
+          </div>
         ) : null}
 
         {alert && !signIn ? (
@@ -58,6 +62,6 @@ useEffect(()=>{
           </Alert>
         ) : null}
       </form>
-    </>
+    </div>
   );
 }

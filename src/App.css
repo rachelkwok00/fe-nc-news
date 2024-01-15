@@ -34,15 +34,16 @@ ul {
   margin-left: auto; 
 }
 
+/* all articles page */
+
 #article-container{
   
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-bottom: 1rem;
- 
 }
 
-#article-card-container{
+.article-card-container{
   border-width: 0.2rem;
   box-shadow: 0.2rem 0.2rem 0.2rem #e4e4e4;
   border-radius: 1rem;
@@ -58,18 +59,24 @@ ul {
  background-color: rgb(174, 174, 240);
 }
 
-#article-card-container h2{
-  text-decoration: none;
-  color: #ffffff;
+#article-card-container .card-title{
+  color: #1a1a1a;
  }
 
 #article-card-container img{
   height: 10rem;
 }
 
+.author-container{
+  margin-bottom: 1rem;
+  color: #818181;
+}
 
-
-
+svg {
+ margin: 0.4rem;
+ 
+}
+/* 
 @media screen and (max-width: 1200px) {
   #article-container{
     display: grid;
@@ -85,8 +92,8 @@ ul {
     margin-bottom: 1rem;
    
   
-  }
-}
+  } 
+}*/
 
 
 
@@ -130,9 +137,14 @@ background-color: #ebe7ff;
   height: 2.8rem;
 }
 /* article card */
+/* .icon-container{
 
+} */
 
 /* article */
+#single-article-container h2{
+padding-top: 1rem;
+}
 
 #single-article-container .topic{
   color: rgb(116, 116, 229);
@@ -149,17 +161,23 @@ background-color: #ebe7ff;
 
 #single-article-container img{
   margin-bottom: 1rem;
+  border-radius: 1rem;
 }
-
+ /* voting in single article */
+ 
 #button-voting-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 1rem;
   }
 
   #button-voting-container button{
    background-color: white;
    font-size: 1.2rem;
+   border-radius: 1rem;
+   height: 3rem;
+   width: 3rem;
     }
 
     #button-voting-container button:hover {
@@ -174,14 +192,11 @@ background-color: #ebe7ff;
         transform: translateY(4px)
          }
    
-   #button-voting-container button a{
-      color:  rgb(116, 116, 229);
-      font-size: 150%
-
-      }
 
 #button-voting-container p{
-  padding: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
   color: white;
   font-weight: bolder;
   
@@ -231,6 +246,7 @@ background-color: #ebe7ff;
 
 h2{
 color: white;
+padding-top: 0.6rem;
 }
 
 #new-comment-container{
@@ -238,6 +254,7 @@ color: white;
   border-color: rgb(255, 255, 255) ;
   border-style: solid;
 }
+
 #comments-container{
   border-color: rgb(255, 255, 255) ;
   border-style: solid;
@@ -253,6 +270,7 @@ color: white;
 .new-comment-container{
   background-color: rgb(255, 255, 255, 0.5);
   padding-top: 2rem;
+  padding-bottom: 2rem;
   margin-left: 2rem;
   margin-right: 2rem;
   border-radius: 2rem;
@@ -276,6 +294,13 @@ color: white;
 .new-comment-container button{
  background-color: rgb(116, 116, 229);
  font-weight: bold;
+ font-size: larger;
+letter-spacing: 0.03rem;
+ height: 4rem;
+ width: 13rem;
+ border-radius: 1rem;
+ border: solid 3px white;
+ color: white;
 }
 
 .new-comment-container button:hover {
@@ -292,7 +317,6 @@ color: white;
 
 .new-comment-container p{
   font-weight: bold;
-  color: red;
   padding-bottom: 2rem;
  }
 
@@ -331,3 +355,87 @@ margin-left: 2rem;
 margin-right: 0.1rem;
 color: rgb(79, 79, 79);
  }
+ 
+
+ /* loading spinner */
+
+.loading-spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Sign in page */
+
+.sign-in-container{
+  display: flex;
+  justify-content: center;
+  height: 19rem;
+  background-color:#aeaef0;
+}
+
+.sign-in-container label{
+   justify-content: center;
+ margin-right: 0.4rem;
+ padding-top: 5.7rem;
+}
+
+.sign-in-container #input-username{
+  height: 3rem;
+  border-radius: 0.4rem;
+  padding-left: 1rem;
+  border: none;
+  border-bottom: 2.5px solid rgb(128, 128, 128);
+}
+
+.sign-in-container .button-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.sign-in-container #signin-button {
+  appearance: none;
+  background-color: rgb(116, 116, 229);
+  border: 3px solid #ffffff;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+.sign-in-container #signin-button:disabled {
+  pointer-events: none;
+}
+
+.sign-in-container #signin-button:hover {
+  color: #fff;
+  background-color: rgb(82, 82, 161);
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.sign-in-container #signin-button:active {
+  box-shadow: none;
+  transform: translateY(0);
+
+}

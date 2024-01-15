@@ -32,7 +32,6 @@ export default function SingleArticle() {
 
   return (
     <div>
-      {" "}
       <div id="single-article-container">
         <h2>{article.title}</h2>
         <p className="topic">{article.topic}</p>
@@ -42,7 +41,7 @@ export default function SingleArticle() {
         <p className="article-body">{article.body}</p>
 
         <p className="article-info">
-          written by: {article.author} on{" "}
+          written by: {article.author} on&nbsp;
           <Timestamp date={article.created_at} />
         </p>
       </div>

@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../Contexts/UserContext";
 import { deleteComment, postComment } from "./Utils/apis";
 import NewComment from "./NewComment";
-import "../../CSS/Comment.css";
 import Alert from "react-bootstrap/Alert";
 import { Button } from "react-bootstrap";
 import DeleteCommentButton from "./DeleteCommentButton";
