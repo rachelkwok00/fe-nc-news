@@ -1,9 +1,8 @@
 import { Button } from "react-bootstrap";
 import React, { useContext, useEffect, useState } from "react";
-import { UserContext } from "../Contexts/UserContext";
 import { deleteComment } from "./Utils/apis";
 import Alert from "react-bootstrap/Alert";
-import PropTypes from "prop-types";
+
 
 export default function DeleteCommentButton({ commentID, setDeletedComment }) {
   const [showAlert, setShowAlert] = useState(false);
@@ -31,7 +30,12 @@ export default function DeleteCommentButton({ commentID, setDeletedComment }) {
 
   return (
     <>
-      <Button onClick={() => handleDeleteComment(commentID)}>Delete</Button>
+      <Button
+        variant="outline-secondary"
+        onClick={() => handleDeleteComment(commentID)}
+      >
+        Delete Comment
+      </Button>
       <Alert variant={alertVariant}>
         <Alert.Heading>{err}</Alert.Heading>
       </Alert>

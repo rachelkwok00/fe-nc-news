@@ -51,6 +51,7 @@ export default function SingleArticle(){
             <div id="comments-container" key={index}>
               <div className="comment-card">
                 <div className="comment-background">
+                  <p>{comment.body}</p>
                   {signIn && username === comment.author ? (
                     <DeleteCommentButton
                       commentID={comment.comment_id}
@@ -58,7 +59,7 @@ export default function SingleArticle(){
                     />
                   ) : null}
 
-                  <p>{comment.body}</p>
+                  
                 </div>
                 <div className="comment-info">
                   <h4>{comment.author}</h4>

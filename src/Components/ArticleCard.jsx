@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 import ListGroup from "react-bootstrap/ListGroup";
 import { CommentSvg , HeartSvg} from "../Assets/SvgFile";
 import Badge from "react-bootstrap/Badge";
-import Stack from "react-bootstrap/Stack";
 
 export default function ArticleCard(article) {
   return (
     <div className="article-card-container">
-      <Card style={{ width: "18rem" }}>
+      <Card style={{ width: "18rem" , height:"28rem"}}>
         <Card.Body>
           <Card.Link as={Link} to={`/articles/${article.article.article_id}`}>
             <Card.Title className="card-title">

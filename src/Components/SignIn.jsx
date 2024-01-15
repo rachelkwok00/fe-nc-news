@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from 'react'
 import { getUsername } from './Utils/apis';
 import { UserContext } from '../Contexts/UserContext';
 import Alert from 'react-bootstrap/Alert';
-import Button from 'react-bootstrap/Button';
 
 export default function SignIn() {
 

@@ -4,7 +4,6 @@ import { deleteComment, postComment } from "./Utils/apis";
 import NewComment from "./NewComment";
 import Alert from "react-bootstrap/Alert";
 import { Button } from "react-bootstrap";
-import DeleteCommentButton from "./DeleteCommentButton";
 
 export default function AddComment({ article_id }) {
   const [newComment, setNewComment] = useState("");
@@ -87,7 +86,7 @@ export default function AddComment({ article_id }) {
   };
 
   return (
-    <>
+    <div className="new-comment-container">
       {newFullComment ? (
         <>
           <NewComment newFullComment={newFullComment} />
@@ -95,8 +94,9 @@ export default function AddComment({ article_id }) {
             onClick={() => handleDeleteComment(newFullComment.comment_id)}
           >
             {" "}
-            Delete{" "}
+            Delete Comment{" "}
           </Button>
+     
           {err && showAlert ? (
             <Alert variant={alertVariant}>
               <Alert.Heading>{err}</Alert.Heading>
@@ -104,7 +104,7 @@ export default function AddComment({ article_id }) {
           ) : null}
         </>
       ) : (
-        <div className="new-comment-container">
+        <div>
           <div>{newFullComment}</div>
           <form onSubmit={postingComment}>
             <input
@@ -125,6 +125,6 @@ export default function AddComment({ article_id }) {
           </form>{" "}
         </div>
       )}
-    </>
+    </div>
   );
 }
