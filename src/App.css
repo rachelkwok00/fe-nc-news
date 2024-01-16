@@ -154,6 +154,7 @@ p {
 #single-article-container img {
   margin-bottom: 1rem;
   padding-top: 1.5rem;
+  height: 22rem;
 }
 /* voting in single article */
 
@@ -232,7 +233,7 @@ p {
 
 h2 {
   color: white;
-  padding-top: 0.6rem;
+  padding-top: 0.4rem;
 }
 
 .new-comment-card {
@@ -257,7 +258,7 @@ h2 {
   padding-right: 1.5rem;
   height: 2rem;
   color: #595959;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
 }
 
 #comments-container {
@@ -289,12 +290,14 @@ h2 {
 }
 .new-comment-container #input-comment {
   min-height: 5rem;
-  min-width: 30rem;
+  min-width: 25rem;
   margin-right: 3rem;
   background-color: rgb(193, 193, 193);
   border-radius: 1rem;
   font-weight: bold;
   margin-top: 1rem;
+  align-items: center;
+  margin-left: 1.3rem;
 }
 
 .new-comment-container button {
@@ -307,6 +310,8 @@ h2 {
   border-radius: 1rem;
   border: solid 3px white;
   color: white;
+  margin-top: 1.8rem;
+  
 }
 
 .new-comment-container button:hover {
@@ -352,13 +357,13 @@ h2 {
   height: 2rem;
   padding-top: 0.3rem;
   margin-bottom: 0.4rem;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
 }
 
 .comment-card .comment-info h4 {
   margin-left: 1.5rem;
   color: #595959;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
 }
 
 .comment-card .comment-info p {
