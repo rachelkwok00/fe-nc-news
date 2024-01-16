@@ -322,15 +322,14 @@ h2 {
 }
 
 .new-comment-container p {
-  font-weight: bold;
   padding-bottom: 2rem;
 }
 
 .comment-card p {
-  font-weight: bold;
   color: rgb(62, 62, 228);
   align-items: center;
   padding: 2rem;
+  font-weight: bold;
 }
 .comment-card .comment-background {
   background-color: white;
@@ -338,10 +337,11 @@ h2 {
   border-radius: 2rem;
   min-height: 5rem;
   align-items: center;
+  padding-bottom: 1rem;
 }
 
 .comment-card .comment-info {
-  background-color: rgba(255, 255, 255, 0.4);
+ background-color: #ebe7ff;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -351,6 +351,8 @@ h2 {
   border-radius: 2rem;
   height: 2rem;
   padding-top: 0.3rem;
+  margin-bottom: 0.4rem;
+  font-size: 1.2rem;
 }
 
 .comment-card .comment-info h4 {
@@ -363,6 +365,36 @@ h2 {
   margin-right: 0.1rem;
   color: rgb(79, 79, 79);
   padding-top: 2.5rem;
+}
+
+.comment-card .comment-info a {
+  margin-right: 0.8rem;
+  color: rgb(79, 79, 79);
+ padding-bottom: 0.4rem;
+}
+
+.delete-comment-button {
+  background-color: rgb(116, 116, 229);
+  font-weight: bold;
+  font-size: larger;
+  letter-spacing: 0.03rem;
+  height: 4rem;
+  width: 13rem;
+  border-radius: 1rem;
+  border: solid 3px white;
+  color: white;
+}
+
+.delete-comment-button:hover {
+  font-size: larger;
+  background-color: rgb(62, 62, 228);
+}
+
+.delete-comment-button:active {
+  font-size: larger;
+  background-color: rgb(62, 62, 228);
+  opacity: 0.6;
+  transform: translateY(4px);
 }
 
 /* loading spinner */
@@ -447,3 +479,4 @@ h2 {
   box-shadow: none;
   transform: translateY(0);
 }
+

@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+
 import React, { useContext, useEffect, useState } from "react";
 import { deleteComment } from "./Utils/apis";
 import Alert from "react-bootstrap/Alert";
@@ -30,12 +30,12 @@ export default function DeleteCommentButton({ commentID, setDeletedComment }) {
 
   return (
     <>
-      <Button
-        variant="outline-secondary"
+      <button
+      className="delete-comment-button"
         onClick={() => handleDeleteComment(commentID)}
       >
         Delete Comment
-      </Button>
+      </button>
       <Alert variant={alertVariant}>
         <Alert.Heading>{err}</Alert.Heading>
       </Alert>
