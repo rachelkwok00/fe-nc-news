@@ -133,6 +133,74 @@ p {
 }
 
 /* article */
+
+@media screen and (max-width: 600px) {
+  #single-article-container img {
+  margin-bottom: 1rem;
+  padding-top: 1.5rem;
+  max-width: 78%;
+}
+
+.new-comment-container #input-comment {
+  min-height: 5rem;
+  width: 50%;
+  margin-right: 3rem;
+  background-color: rgb(224, 224, 224);
+  border-radius: 1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  align-items: center;
+  margin-left: 1.3rem;
+  border: none;
+}
+
+.comment-card .comment-info {
+ background-color: #ebe7ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 2rem;
+  height: 4.2rem;
+  padding-top: 0.3rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.8rem;
+}
+
+#single-article-container .article-info {
+  background-color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 2rem;
+  height: 3.5rem;
+  color: white;
+  padding-right: 1.5rem;
+}
+
+.new-comment-card .new-comment-info {
+  background-color: #ebe7ff;
+  margin-top: 0.8rem;
+  margin-left: 1rem;
+  margin-bottom: 0.4rem;
+  margin-right: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  height: 4.2rem;
+  color: #595959;
+  font-size: 0.8rem;
+}
+}
+
 #single-article-container h2 {
   padding-top: 1rem;
   padding-bottom: 0.8rem;
@@ -292,12 +360,13 @@ h2 {
   min-height: 5rem;
   min-width: 25rem;
   margin-right: 3rem;
-  background-color: rgb(193, 193, 193);
+  background-color: rgb(224, 224, 224);
   border-radius: 1rem;
   font-weight: bold;
   margin-top: 1rem;
   align-items: center;
   margin-left: 1.3rem;
+  border: none;
 }
 
 .new-comment-container button {
