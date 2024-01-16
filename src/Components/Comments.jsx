@@ -51,22 +51,24 @@ export default function SingleArticle(){
             <div id="comments-container" key={index}>
               <div className="comment-card">
                 <div className="comment-background">
-                  {signIn && username === comment.author ? (
+                  <p>{comment.body}</p>
+                 
+
+                  <div className="comment-info">
+                  <h4>{comment.author}</h4>
+                  <a>
+                    {" "}
+                    <Timestamp date={comment.created_at} />
+                  </a>
+                </div>
+                </div>
+                
+                 {signIn && username === comment.author ? (
                     <DeleteCommentButton
                       commentID={comment.comment_id}
                       setDeletedComment={setDeletedComment}
                     />
                   ) : null}
-
-                  <p>{comment.body}</p>
-                </div>
-                <div className="comment-info">
-                  <h4>{comment.author}</h4>
-                  <p>
-                    {" "}
-                    <Timestamp date={comment.created_at} />
-                  </p>
-                </div>
               </div>
             </div>
           );

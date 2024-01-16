@@ -4,13 +4,14 @@ import Timestamp from 'react-timestamp';
 export default function NewComment({newFullComment}) {
 
   return (
-    <div id="new-comment-container">
-    {newFullComment.author}
-    <br></br>
+    <div className="new-comment-card">
+      <div className='new-comment-body'>
     {newFullComment.body}
-    <br></br>
+    </div>
+    <div className='new-comment-info'>
+    {newFullComment.author}
     <Timestamp date={newFullComment.created_at} />
-    <br></br>
+    </div>
     </div>
   )
 }

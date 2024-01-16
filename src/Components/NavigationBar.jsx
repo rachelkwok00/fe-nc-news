@@ -34,9 +34,11 @@ export default function NavigationBar() {
                 <AllTopics />
               </NavDropdown>
             </div>
-            <Nav.Link as={Link} to="/account" id="username-container">
-              {signIn ? `Signed in as: ${username}` : "Sign In"}
-            </Nav.Link>
+            <div className="margin-left: auto">
+              <Nav.Link as={Link} to="/account" id="username-container">
+                {signIn ? `Signed in as: ${username}` : "Sign In"}
+              </Nav.Link>
+            </div>
           </Nav>
         </Container>
       </Navbar>
