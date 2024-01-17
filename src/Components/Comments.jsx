@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 import Timestamp from 'react-timestamp';
 import AddComment from "./AddComment";
 import DeleteCommentButton from "./DeleteCommentButton";
-
 import { UserContext } from "../Contexts/UserContext";
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function SingleArticle(){
 
@@ -34,7 +34,7 @@ export default function SingleArticle(){
       });
   }, [deletedComment]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingSpinner />;
   if (err) return <p>{err}</p>;
 
   return (

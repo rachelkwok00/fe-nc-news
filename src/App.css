@@ -138,12 +138,10 @@ p {
   #single-article-container img {
   margin-bottom: 1rem;
   padding-top: 1.5rem;
-  max-width: 78%;
+  max-width: 92%;
 }
 
 .new-comment-container #input-comment {
-  min-height: 5rem;
-  width: 4%;
   margin-right: 3rem;
   background-color: rgb(224, 224, 224);
   border-radius: 1rem;
@@ -152,7 +150,9 @@ p {
   align-items: center;
   margin-left: 1.3rem;
   border: none;
+
 }
+
 
 .comment-card .comment-info {
  background-color: #ebe7ff;
@@ -164,14 +164,13 @@ p {
   margin-bottom: 2rem;
   border-radius: 1rem;
   height: 8%;
-  padding-top: 1.7%;
+  padding-top: 10.7%;
   padding-bottom: 1.2%;
-  margin-bottom: 0.4rem;
-  font-size: 0.8rem;
+  margin-bottom: 40.4rem;
+  font-size: x-small;
 }
 
 #single-article-container .article-info {
-  background-color: rgba(255, 255, 255, 0.4);
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -179,9 +178,11 @@ p {
   margin-right: 2rem;
   margin-bottom: 2rem;
   border-radius: 1rem;
-  height: 8%;
   color: white;
-  padding-right: 1.5rem;
+  font-size: x-small;
+  margin-top: 10%;
+  padding-top: 8%;
+  padding-left: 6%;
 }
 
 .new-comment-card .new-comment-info {
@@ -189,13 +190,10 @@ p {
   margin-top: 0.8rem;
   margin-left: 1rem;
   margin-bottom: 0.4rem;
-  margin-right: 1rem;
   border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 1%;
-  padding-right: 1%;
   height: 8%;
   color: #595959;
   font-size: 0.8rem;
@@ -296,6 +294,7 @@ p {
   height: 2rem;
   color: white;
   padding-right: 1.5rem;
+  padding-top: 0.9rem;
 }
 
 /* comments */
@@ -329,6 +328,7 @@ h2 {
   padding-bottom: 0.8%;
   color: #595959;
   font-size: 0.8rem;
+  height: 4rem;
 }
 
 #comments-container {
@@ -360,10 +360,9 @@ h2 {
 }
 .new-comment-container #input-comment {
   min-height: 5rem;
-  min-width: 25rem;
-  width:70%;
+  width:85%;
   margin-right: 3rem;
-  background-color: rgb(224, 224, 224);
+  background-color: rgba(224, 224, 224, 0.934);
   border-radius: 1rem;
   font-weight: bold;
   margin-top: 1rem;
@@ -427,7 +426,7 @@ h2 {
   margin-right: 2rem;
   margin-bottom: 2rem;
   border-radius: 1rem;
-  height: 2rem;
+  height: 4rem;
   padding-top: 1.7%;
   padding-bottom: 1.2%;
   margin-bottom: 0.4rem;

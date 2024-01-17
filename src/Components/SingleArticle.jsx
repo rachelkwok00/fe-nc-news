@@ -39,11 +39,12 @@ export default function SingleArticle() {
 
         <Vote votes={article.votes} article_id={article.article_id} />
         <p className="article-body">{article.body}</p>
-
-        <p className="article-info">
+<div className="article-info">
+        <p >
           written by: {article.author} on&nbsp;
           <Timestamp date={article.created_at} />
         </p>
+        </div>
       </div>
       <div id="comments-container">
         <Comments votes={article.votes} />
